@@ -6,13 +6,6 @@
         <value nick="fr" value="2"/>
     </enum>
 
-	<enum id="com.vysp3r.Beamline.Resolution">
-        <value nick="hd" value="0"/>
-        <value nick="full-hd" value="1"/>
-		<value nick="quad-hd" value="2"/>
-		<value nick="ultra-hd" value="3"/>
-    </enum>
-
 	<enum id="com.vysp3r.Beamline.Style">
         <value nick="system" value="0"/>
         <value nick="light" value="1"/>
@@ -50,8 +43,8 @@
 		<key name="enable-automatic-scaling" type="b">
 			<default>true</default>
 		</key>
-		<key name="resolution" enum="com.vysp3r.Beamline.Resolution">
-			<default>"full-hd"</default>
+		<key name="scaling" type="d">
+			<default>1.0</default>
 		</key>
 		<key name="style" enum="com.vysp3r.Beamline.Style">
             <default>"system"</default>

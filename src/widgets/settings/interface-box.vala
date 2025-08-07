@@ -1,6 +1,7 @@
 namespace Protonium.Widgets.Settings {
     public class InterfaceBox : Gtk.Box {
-        Adw.ComboRow resolution_row;
+        Gtk.Scale scaling_scale;
+        Adw.PreferencesRow scaling_row;
 
         public InterfaceBox () {
             Object (orientation: Gtk.Orientation.VERTICAL, spacing: 15);
@@ -18,26 +19,38 @@ namespace Protonium.Widgets.Settings {
                             "active",
                             SettingsBindFlags.DEFAULT);
 
-            var resolution_list_store = new ListStore (typeof (Models.Resolution));
+            scaling_scale = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, null);
+            scaling_scale.set_increments (0.1, 0.1);
+            scaling_scale.set_range (0.20, 5);
+            scaling_scale.set_round_digits (2);
+            scaling_scale.add_mark (1, Gtk.PositionType.TOP, null);
+            scaling_scale.set_value (Application.settings.get_double ("scaling"));
+            scaling_scale.value_changed.connect (scaling_scale_value_changed);
 
-            foreach (var resolution in Models.Resolution.get_resolutions ())
-                resolution_list_store.append (resolution);
+            var smaller_label = new Gtk.Label (_("Smaller")) {
+                hexpand = true,
+                halign = Gtk.Align.START,
+            };
 
-            var resolution_selection_model = new Gtk.SingleSelection (resolution_list_store);
+            var larger_label = new Gtk.Label (_("Larger"));
 
-            var resolution_factory = new Gtk.SignalListItemFactory ();
-            resolution_factory.setup.connect (resolution_factory_setup);
-            resolution_factory.bind.connect (resolution_factory_bind);
+            var scaling_bottom_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+            scaling_bottom_box.append (smaller_label);
+            scaling_bottom_box.append (larger_label);
 
-            resolution_row = new Adw.ComboRow () {
-                title = _("Targeted resolution"),
-                subtitle = _("Choose the resolution that best fits your screen"),
+            var scaling_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+                margin_start = 15,
+                margin_end = 15,
+                margin_top = 15,
+                margin_bottom = 15,
+            };
+            scaling_box.append (scaling_scale);
+            scaling_box.append (scaling_bottom_box);
+
+            scaling_row = new Adw.PreferencesRow () {
+                child = scaling_box,
                 visible = !Application.settings.get_boolean ("enable-automatic-scaling"),
             };
-            resolution_row.set_factory (resolution_factory);
-            resolution_row.set_model (resolution_selection_model);
-            resolution_row.set_selected (Application.settings.get_enum ("resolution"));
-            resolution_row.notify["selected-item"].connect (resolution_row_selected_item_changed);
 
             Application.settings.changed["enable-automatic-scaling"].connect (enable_automatic_scaling_changed);
 
@@ -52,7 +65,7 @@ namespace Protonium.Widgets.Settings {
 
             var group = new Adw.PreferencesGroup ();
             group.add (enable_automatic_scaling_row);
-            group.add (resolution_row);
+            group.add (scaling_row);
             group.add (enable_background_row);
 
             append (title_label);
@@ -61,31 +74,11 @@ namespace Protonium.Widgets.Settings {
         }
 
         void enable_automatic_scaling_changed () {
-            resolution_row.set_visible (!Application.settings.get_boolean ("enable-automatic-scaling"));
+            scaling_row.set_visible (!Application.settings.get_boolean ("enable-automatic-scaling"));
         }
 
-        void resolution_factory_bind (Object object) {
-            var list_item = object as Gtk.ListItem;
-
-			var resolution = list_item.get_item() as Models.Resolution;
-
-            list_item.get_data<Gtk.Label> ("name-label").set_label (resolution.name);
-        }
-
-        void resolution_factory_setup (Object object) {
-			var list_item = object as Gtk.ListItem;
-
-            var name_label = new Gtk.Label (null);
-
-            list_item.set_data ("name-label", name_label);
-
-			list_item.set_child(name_label);
-        }
-
-        void resolution_row_selected_item_changed () {
-            var resolution = resolution_row.get_selected_item () as Models.Resolution;
-
-            Application.settings.set_enum ("resolution", resolution.size);
+        void scaling_scale_value_changed () {
+            Application.settings.set_double ("scaling", scaling_scale.get_value ());
         }
     }
 }

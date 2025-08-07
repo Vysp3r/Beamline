@@ -1,9 +1,12 @@
 namespace Protonium.Widgets.Library {
     public class MainBox : Gtk.Box {
+        public View current_view;
+
         Window window;
         BlurredImage background_image;
         GamesBox games_box;
         GameBox game_box;
+        CollectionsBox collections_box;
         Gtk.Overlay background_overlay;
 
         public MainBox (Window window) {
@@ -29,12 +32,17 @@ namespace Protonium.Widgets.Library {
                 visible = false,
             };
 
+            collections_box = new CollectionsBox () {
+                visible = false,
+            };
+
             background_overlay = new Gtk.Overlay () {
                 child = background_image,
                 vexpand = true,
             };
             background_overlay.add_overlay (games_box);
             background_overlay.add_overlay (game_box);
+            background_overlay.add_overlay (collections_box);
 
             notify["parent"].connect (update_library_bar_visibility);
 
@@ -51,22 +59,43 @@ namespace Protonium.Widgets.Library {
             window.bar_main_box.menu_main_box.load (game);
         }
 
-        public void show_game_box (bool show) {
-            games_box.set_visible (!show);
-
-            game_box.set_visible (show);
-
-            window.set_window_title (show ? window.selected_game.name : _("Library"));
+        void update_library_bar_visibility () {
+            window.bar_main_box.library_bar.set_visible (get_parent () != null && current_view != View.GAME);
         }
 
         public void load (Models.Games.Game game) {
             game_box.load (game);
 
-            show_game_box (true);
+            set_view (View.GAME);
         }
 
-        void update_library_bar_visibility () {
-            window.bar_main_box.library_bar.set_visible (get_parent () != null && games_box.get_visible ());
+        public void set_view (View view) {
+            this.current_view = view;
+
+            games_box.set_visible (view == View.GAMES);
+
+            if (view == View.GAMES) {
+                window.set_window_title (_("Library"));
+                window.bar_main_box.library_bar.set_active_tab (LibraryBar.Tab.ALL_GAMES);
+            }
+
+            game_box.set_visible (view == View.GAME);
+
+            if (view == View.GAME)
+                window.set_window_title (window.selected_game.name);
+
+            collections_box.set_visible (view == View.COLLECTIONS);
+
+            if (view == View.COLLECTIONS) {
+                window.set_window_title (_("Collections"));
+                window.bar_main_box.library_bar.set_active_tab (LibraryBar.Tab.COLLECTIONS);
+            }
+        }
+
+        public enum View {
+            GAMES,
+            GAME,
+            COLLECTIONS,
         }
     }
 }

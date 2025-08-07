@@ -52,6 +52,7 @@ beamline_sources += [
   'widgets/library/main-box.vala',
   'widgets/library/games-box.vala',
   'widgets/library/game-box.vala',
+  'widgets/library/collections-box.vala',
 
   'widgets/settings/main-box.vala',
   'widgets/settings/sidebar-box.vala',

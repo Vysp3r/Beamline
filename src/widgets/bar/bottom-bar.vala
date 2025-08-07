@@ -125,7 +125,7 @@ namespace Protonium.Widgets {
 
                 window.bar_main_box?.bottom_bar?.show_extra_buttons (true);
             } else {
-                window.library_main_box.show_game_box (false);
+                window.library_main_box.set_view (Library.MainBox.View.GAMES);
             }
         }
 

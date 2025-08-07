@@ -70,16 +70,16 @@ beamline_deps = [
   declare_dependency(link_args: ['-lm']),
   config_dep,
   dependency('gtk4'),
-  dependency('cairo'),
+  dependency('libadwaita-1', version: '>= 1.6'),
   dependency('glib-2.0'),
   dependency('json-glib-1.0'),
   dependency('libsoup-3.0'),
+  dependency('libarchive'),
   dependency('gee-0.8'),
   dependency('libportal'),
   dependency('libportal-gtk4'),
   dependency('libnm'),
   dependency('upower-glib'),
-  dependency('libadwaita-1', version: '>= 1.6'),
   meson.get_compiler('vala').find_library('posix'),
 ]
 

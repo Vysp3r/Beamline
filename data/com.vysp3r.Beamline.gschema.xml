@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="com.vysp3r.Beamline">
+	<enum id="com.vysp3r.Beamline.Language">
+        <value nick="system" value="0"/>
+        <value nick="en" value="1"/>
+        <value nick="fr" value="2"/>
+    </enum>
+
+	<enum id="com.vysp3r.Beamline.Resolution">
+        <value nick="hd" value="0"/>
+        <value nick="full-hd" value="1"/>
+		<value nick="quad-hd" value="2"/>
+		<value nick="ultra-hd" value="3"/>
+    </enum>
+
+	<enum id="com.vysp3r.Beamline.Style">
+        <value nick="system" value="0"/>
+        <value nick="light" value="1"/>
+        <value nick="dark" value="4"/>
+    </enum>
+
+	<schema id="com.vysp3r.Beamline" path="/com/vysp3r/Beamline/">
+		<key name="width" type="i">
+      		<default>1620</default>
+		</key>
+		<key name="height" type="i">
+			<default>1155</default>
+		</key>
+		<key name="is-maximized" type="b">
+			<default>true</default>
+		</key>
+		<key name="is-fullscreen" type="b">
+			<default>false</default>
+		</key>
+		<key name="is-onboarding-done" type="b">
+			<default>false</default>
+		</key>
+		<key name="twenty-four-hour-clock" type="b">
+			<default>false</default>
+		</key>
+		<key name="show-battery-percentage" type="b">
+			<default>false</default>
+		</key>
+		<key name="enable-ui-sound" type="b">
+			<default>true</default>
+		</key>
+		<key name="enable-blurred-background" type="b">
+			<default>true</default>
+		</key>
+		<key name="enable-automatic-scaling" type="b">
+			<default>true</default>
+		</key>
+		<key name="resolution" enum="com.vysp3r.Beamline.Resolution">
+			<default>"full-hd"</default>
+		</key>
+		<key name="style" enum="com.vysp3r.Beamline.Style">
+            <default>"system"</default>
+        </key>
+		<key name="language" enum="com.vysp3r.Beamline.Language">
+            <default>"system"</default>
+        </key>
+	</schema>
+</schemalist>

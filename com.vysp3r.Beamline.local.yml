@@ -1,0 +1,47 @@
+id: com.vysp3r.Beamline
+runtime: org.gnome.Platform
+runtime-version: '48'
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.vala
+command: Beamline
+finish-args:
+  - --device=dri
+  - --share=ipc
+  - --share=network
+  - --socket=fallback-x11
+  - --socket=wayland
+  # Host-spawn access is needed to check if host contains dependencies,
+  # and to execute various compatibility tool installers on the host.
+  - --talk-name=org.freedesktop.Flatpak
+  # Required GNOME/GTK permissions.
+  - --talk-name=org.gtk.vfs.*
+  - --filesystem=xdg-run/gvfsd
+  #
+  - --filesystem=host
+  # Request access to supported Flatpak apps
+  - --filesystem=~/.var/app/com.heroicgameslauncher.hgl/config/heroic
+  - --filesystem=~/.var/app/com.usebottles.bottles/data/bottles
+  - --filesystem=~/.var/app/com.valvesoftware.Steam/data/Steam
+  - --filesystem=~/.var/app/net.lutris.Lutris/data/lutris
+  - --filesystem=~/.var/app/io.github.fastrizwaan.WineZGUI/data/winezgui
+build-options:
+  append-path: /usr/lib/sdk/vala/bin
+  prepend-ld-library-path: /usr/lib/sdk/vala/lib
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /share/pkgconfig
+  - /share/aclocal
+  - /man
+  - /share/man
+  - /share/gtk-doc
+  - '*.la'
+  - '*.a'
+modules:
+  - name: Beamline
+    builddir: true
+    buildsystem: meson
+    sources:
+      - type: dir
+        path: .

@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=com.vysp3r.Beamline
+Exec=@bindir@/beamline --gapplication-service

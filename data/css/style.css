@@ -1,0 +1,261 @@
+/* Bar */
+
+.bottom-box {
+    -gtk-icon-size: 48px;
+}
+
+.bottom-box *,
+.top-box *,
+.library-bar * {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.bottom-box button,
+.bottom-box .info-box {
+    padding: 15px;
+}
+
+.bottom-box *,
+.top-box *,
+.top-box,
+.library-bar * {
+    border-radius: 0;
+}
+
+.top-box {
+    -gtk-icon-size: 40px;
+}
+
+.top-box * {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.top-box > label {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.top-box button {
+    padding: 20px;
+}
+
+.top-box button:hover {
+    background-color: color(srgb 1 1 1 / 0.07);
+}
+
+.bottom-box,
+.top-box,
+.library-bar {
+    background-color: @card_shade_color;
+}
+
+.library-bar {
+    -gtk-icon-size: 56px;
+    margin-top: 80px;
+}
+
+/* Menu */
+
+.menu-main-box {
+    font-size: 24px;
+    background-color: @card_shade_color;
+}
+
+.menu-main-box button {
+    border-radius: 0;
+}
+
+.menu-main-box .title-label {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.menu-main-box .menu-box,
+.menu-main-box .filter-box,
+.menu-main-box .order-by-box,
+.menu-main-box .options-box,
+.menu-main-box .power-box,
+.menu-main-box .connection-box {
+    padding: 15px;
+    background-color: @card_shade_color;
+}
+
+.menu-main-box .menu-box,
+.menu-main-box .options-box {
+    -gtk-icon-size: 48px;
+}
+
+.menu-main-box .menu-box {
+    margin-top: 80px;
+    margin-bottom: 78px;
+}
+
+.menu-main-box .menu-box button,
+.menu-main-box .power-box button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.menu-main-box * {
+    border-radius: 0;
+}
+
+/* Settings */
+
+.settings-main-box {
+    font-size: 24px;
+    margin-top: 80px;
+    margin-bottom: 78px;
+}
+
+.settings-main-box .sidebar-box,
+.settings-main-box .general-box,
+.settings-main-box .system-box,
+.settings-main-box .internet-box,
+.settings-main-box .power-box,
+.settings-main-box .audio-box,
+.settings-main-box .library-box,
+.settings-main-box .interface-box {
+    padding: 15px;
+}
+
+.settings-main-box .title-label {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.settings-main-box .sidebar-box button {
+    -gtk-icon-size: 48px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.settings-main-box .library-box .game-count-label {
+    margin-right: 15px;
+}
+
+.settings-main-box .library-box {
+    -gtk-icon-size: 48px;
+}
+
+.settings-main-box * {
+    border-radius: 0;
+}
+
+.settings-main-box .audio-box .scale-box {
+    -gtk-icon-size: 36px;
+    padding: 10px;
+}
+
+.settings-main-box .darker-row {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Dashboard */
+
+.dashboard-main-box scrolledwindow {
+    margin-left: 15px;
+    margin-top: 160px;
+    margin-bottom: 95px;
+}
+
+.dashboard-main-box gridview {
+    background-color: transparent;
+}
+
+.dashboard-main-box gridview>child {
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.dashboard-main-box gridview *,
+.dashboard-main-box .game-box * {
+    border-radius: 0;
+}
+
+.dashboard-main-box .game-box button {
+    padding: 15px;
+}
+
+.dashboard-main-box .game-box {
+    text-shadow: 2px 2px 4px #000000;
+    -gtk-icon-size: 48px;
+    font-size: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 100px;
+}
+
+.dashboard-main-box .game-box .title-label {
+    font-size: 56px;
+    font-weight: bolder;
+}
+
+.dashboard-main-box .game-box .developer-label {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.dashboard-main-box .game-box button {
+    text-shadow: none;
+    padding: 30px;
+    background-color: @card_shade_color;
+}
+
+.dashboard-main-box .game-box button:hover {
+    background-color: color(srgb 1 1 1 / 0.07);
+}
+
+/* GameRow */
+
+.game-row-main-box {
+    font-size: 24px;
+    font-weight: bold;
+    -gtk-icon-size: 48px;
+}
+
+.game-row-main-box box:hover {
+    background-color: @card_shade_color;
+}
+
+.game-row-main-box overlay>image {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    padding: 5px;
+    background-color: @card_shade_color;
+}
+
+.game-row-main-box overlay>button {
+    margin-left: 15px;
+    margin-bottom: 15px;
+    background-color: @card_shade_color;
+}
+
+.game-row-main-box overlay>button:hover {
+    background-color: color(srgb 1 1 1 / 0.07);
+}
+
+.game-row-main-box overlay>button>image {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Onboarding */
+
+.onboarding-main-box .carousel-box {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.onboarding-main-box .previous-button {
+    margin-left: 15px;
+}
+
+.onboarding-main-box .next-button {
+    margin-right: 15px;
+}

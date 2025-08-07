@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/vysp3r/Beamline">
+    <file preprocess="xml-stripblanks" alias="gtk/help-overlay.ui">ui/gtk/help-overlay.ui</file>
+    <file alias="bottles.svg">images/bottles.svg</file>
+    <file alias="hgl.svg">images/hgl.svg</file>
+    <file alias="lutris.svg">images/lutris.svg</file>
+    <file alias="steam.svg">images/steam.svg</file>
+    <file alias="winezgui.svg">images/winezgui.svg</file>
+    <file alias="style.css">css/style.css</file>
+    <file alias="style-dark.css">css/style-dark.css</file>
+  </gresource>
+  <gresource prefix="/com/vysp3r/Beamline/icons">
+    <file alias="scalable/actions/heart-symbolic.svg">icons/heart.svg</file>
+    <file alias="scalable/actions/confetti-symbolic.svg">icons/confetti.svg</file>
+    <file alias="scalable/actions/automation-symbolic.svg">icons/automation.svg</file>
+    <file alias="scalable/actions/controller-symbolic.svg">icons/controller.svg</file>
+    <file alias="scalable/actions/bell-symbolic.svg">icons/bell.svg</file>
+    <file alias="scalable/actions/help-circle-symbolic.svg">icons/help-circle.svg</file>
+    <file alias="scalable/actions/cog-symbolic.svg">icons/cog.svg</file>
+    <file alias="scalable/actions/plus-symbolic.svg">icons/plus.svg</file>
+    <file alias="scalable/actions/books-symbolic.svg">icons/books.svg</file>
+    <file alias="scalable/actions/sandglass-symbolic.svg">icons/sandglass.svg</file>
+    <file alias="scalable/actions/download-2-symbolic.svg">icons/download.svg</file>
+    <file alias="scalable/actions/brand-steam-symbolic.svg">icons/brand-steam.svg</file>
+    <file alias="scalable/actions/search-2-symbolic.svg">icons/search.svg</file>
+    <file alias="scalable/actions/trash-symbolic.svg">icons/trash.svg</file>
+    <file alias="scalable/actions/eye-x-symbolic.svg">icons/eye-x.svg</file>
+    <file alias="scalable/actions/edit-symbolic.svg">icons/edit.svg</file>
+    <file alias="scalable/actions/play-symbolic.svg">icons/play.svg</file>
+    <file alias="scalable/actions/power-2-symbolic.svg">icons/power.svg</file>
+    <file alias="scalable/actions/headphones-symbolic.svg">icons/headphones.svg</file>
+    <file alias="scalable/actions/desktop-2-symbolic.svg">icons/desktop.svg</file>
+    <file alias="scalable/actions/reload-symbolic.svg">icons/reload.svg</file>
+    <file alias="scalable/actions/www-symbolic.svg">icons/www.svg</file>
+    <file alias="scalable/actions/microphone-2-symbolic.svg">icons/microphone.svg</file>
+    <file alias="scalable/actions/volume-symbolic.svg">icons/volume.svg</file>
+    <file alias="scalable/actions/directory-2-symbolic.svg">icons/directory.svg</file>
+    <file alias="scalable/actions/desktop-analytics-symbolic.svg">icons/desktop-analytics.svg</file>
+    <file alias="scalable/actions/network-symbolic.svg">icons/network.svg</file>
+    <file alias="scalable/actions/network-off-symbolic.svg">icons/network-off.svg</file>
+    <file alias="scalable/actions/wifi-off-symbolic.svg">icons/wifi-off.svg</file>
+    <file alias="scalable/actions/wifi-1-symbolic.svg">icons/wifi-1.svg</file>
+    <file alias="scalable/actions/wifi-2-symbolic.svg">icons/wifi-2.svg</file>
+    <file alias="scalable/actions/wifi-3-symbolic.svg">icons/wifi-3.svg</file>
+    <file alias="scalable/actions/wifi-4-symbolic.svg">icons/wifi-4.svg</file>
+    <file alias="scalable/actions/battery-charging-symbolic.svg">icons/battery-charging.svg</file>
+    <file alias="scalable/actions/battery-symbolic.svg">icons/battery.svg</file>
+    <file alias="scalable/actions/battery-1-symbolic.svg">icons/battery-1.svg</file>
+    <file alias="scalable/actions/battery-2-symbolic.svg">icons/battery-2.svg</file>
+    <file alias="scalable/actions/battery-3-symbolic.svg">icons/battery-3.svg</file>
+    <file alias="scalable/actions/battery-4-symbolic.svg">icons/battery-4.svg</file>
+    <file alias="scalable/actions/xbox-button-a-symbolic.svg">icons/xbox-button-a.svg</file>
+    <file alias="scalable/actions/xbox-button-b-symbolic.svg">icons/xbox-button-b.svg</file>
+    <file alias="scalable/actions/xbox-button-x-symbolic.svg">icons/xbox-button-x.svg</file>
+    <file alias="scalable/actions/xbox-button-y-symbolic.svg">icons/xbox-button-y.svg</file>
+    <file alias="scalable/actions/xbox-button-menu-symbolic.svg">icons/xbox-button-menu.svg</file>
+    <file alias="scalable/actions/xbox-guide-symbolic.svg">icons/xbox-guide.svg</file>
+    <file alias="scalable/actions/xbox-lb-symbolic.svg">icons/xbox-lb.svg</file>
+    <file alias="scalable/actions/xbox-rb-symbolic.svg">icons/xbox-rb.svg</file>
+  </gresource>
+</gresources>

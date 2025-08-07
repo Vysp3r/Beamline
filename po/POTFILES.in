@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/com.vysp3r.Beamline.desktop.in
+data/com.vysp3r.Beamline.metainfo.xml.in
+data/com.vysp3r.Beamline.gschema.xml
+src/main.vala
+src/window.vala
+src/window.ui

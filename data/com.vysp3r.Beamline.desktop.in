@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Beamline
+Exec=beamline
+Icon=com.vysp3r.Beamline
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

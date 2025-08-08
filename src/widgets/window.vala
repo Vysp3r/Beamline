@@ -110,9 +110,6 @@ namespace Protonium.Widgets {
                     if (settings_main_box == null)
                         settings_main_box = new Settings.MainBox (this); 
 
-                    if (bar_main_box == null)
-                        bar_main_box = new Bar.MainBox (this);
-
                     if (settings_main_box.get_parent () == null)
                         bar_main_box.set_overlay_content (settings_main_box);
 

@@ -52,14 +52,12 @@
 
 .library-bar {
     -gtk-icon-size: 56px;
-    margin-top: 80px;
 }
 
 /* Menu */
 
 .menu-main-box {
     font-size: 24px;
-    background-color: @card_shade_color;
 }
 
 .menu-main-box button {
@@ -86,11 +84,6 @@
     -gtk-icon-size: 48px;
 }
 
-.menu-main-box .menu-box {
-    margin-top: 80px;
-    margin-bottom: 78px;
-}
-
 .menu-main-box .menu-box button,
 .menu-main-box .power-box button {
     padding-top: 10px;
@@ -105,8 +98,6 @@
 
 .settings-main-box {
     font-size: 24px;
-    margin-top: 80px;
-    margin-bottom: 78px;
 }
 
 .settings-main-box .sidebar-box,
@@ -154,31 +145,28 @@
 
 /* Dashboard */
 
-.dashboard-main-box scrolledwindow {
-    margin-left: 15px;
-    margin-top: 160px;
-    margin-bottom: 95px;
-}
-
-.dashboard-main-box gridview {
+.library-main-box gridview {
     background-color: transparent;
+    padding-left: 15px;
+    padding-bottom: 15px;
 }
 
-.dashboard-main-box gridview>child {
+.library-main-box gridview>child {
+    margin-top: 15px;
     margin-right: 15px;
-    margin-bottom: 15px;
+    
 }
 
-.dashboard-main-box gridview *,
-.dashboard-main-box .game-box * {
+.library-main-box gridview *,
+.library-main-box .game-box * {
     border-radius: 0;
 }
 
-.dashboard-main-box .game-box button {
+.library-main-box .game-box button {
     padding: 15px;
 }
 
-.dashboard-main-box .game-box {
+.library-main-box .game-box {
     text-shadow: 2px 2px 4px #000000;
     -gtk-icon-size: 48px;
     font-size: 30px;
@@ -188,23 +176,23 @@
     padding-bottom: 100px;
 }
 
-.dashboard-main-box .game-box .title-label {
+.library-main-box .game-box .title-label {
     font-size: 56px;
     font-weight: bolder;
 }
 
-.dashboard-main-box .game-box .developer-label {
+.library-main-box .game-box .developer-label {
     font-size: 40px;
     font-weight: bold;
 }
 
-.dashboard-main-box .game-box button {
+.library-main-box .game-box button {
     text-shadow: none;
     padding: 30px;
     background-color: @card_shade_color;
 }
 
-.dashboard-main-box .game-box button:hover {
+.library-main-box .game-box button:hover {
     background-color: color(srgb 1 1 1 / 0.07);
 }
 

@@ -34,7 +34,7 @@ namespace Protonium.Utils.Importers {
 
                     string info_json = null;
                     if (FileUtils.test (info_path, FileTest.EXISTS))
-                        info_json = Filesystem.get_file_content (info_path, false);
+                        info_json = Filesystem.get_file_content (info_path);
                     else
                         info_json = Web.get_request ("https://store.steampowered.com/api/appdetails?appids=%s".printf (appid));
                     if (info_json == null)

@@ -93,19 +93,19 @@ namespace Protonium.Widgets {
         }
 
         void menu_button_clicked () {
-            window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.MENU);
+            window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.MENU);
         }
 
         void filter_button_clicked () {
-            window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.FILTER);
+            window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.FILTER);
         }
 
         void order_by_button_clicked () {
-            window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.ORDER_BY);
+            window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.ORDER_BY);
         }
 
         void options_button_clicked () {
-            window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.OPTIONS);
+            window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.OPTIONS);
         }
 
         void select_button_clicked () {
@@ -118,14 +118,14 @@ namespace Protonium.Widgets {
         }
 
         void back_button_clicked () {
-            if (window.bar_main_box.menu_main_box.current_view != Menu.MainBox.View.NONE) {
-                window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
-            } else if (window.current_view == Window.View.SETTINGS) {
-                window.set_view (Widgets.Window.View.LIBRARY);
+            if (window.home_main_box.menu_main_box.current_view != Menu.MainBox.View.NONE) {
+                window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
+            } else if (window.home_main_box.current_view == Home.MainBox.View.SETTINGS) {
+                window.home_main_box.set_view (Home.MainBox.View.LIBRARY);
 
-                window.bar_main_box?.bottom_bar?.show_extra_buttons (true);
+                window.home_main_box?.bottom_bar?.show_extra_buttons (true);
             } else {
-                window.library_main_box.set_view (Library.MainBox.View.GAMES);
+                window.home_main_box.library_main_box.set_view (Library.MainBox.View.GAMES);
             }
         }
 

@@ -21,11 +21,11 @@ namespace Protonium.Widgets.Settings {
 
             scaling_scale = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, null);
             scaling_scale.set_increments (0.1, 0.1);
-            scaling_scale.set_range (0.20, 5);
+            scaling_scale.set_range (0.5, 3);
             scaling_scale.set_round_digits (2);
             scaling_scale.add_mark (1, Gtk.PositionType.TOP, null);
-            scaling_scale.set_value (Application.settings.get_double ("scaling"));
-            scaling_scale.value_changed.connect (scaling_scale_value_changed);
+            scaling_scale.set_value (Application.settings.get_double ("scale-factor"));
+            scaling_scale.notify.connect (scaling_scale_value_changed);
 
             var smaller_label = new Gtk.Label (_("Smaller")) {
                 hexpand = true,
@@ -78,7 +78,7 @@ namespace Protonium.Widgets.Settings {
         }
 
         void scaling_scale_value_changed () {
-            Application.settings.set_double ("scaling", scaling_scale.get_value ());
+            Application.settings.set_double ("scale-factor", scaling_scale.get_value ());
         }
     }
 }

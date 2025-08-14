@@ -32,7 +32,9 @@ namespace Protonium.Widgets.Loading {
             load.begin ((obj, res) => {
                 done = true;
 
-                activate_action_variant ("win.set-view", Window.View.LIBRARY);
+                window.set_view (Window.View.HOME);
+
+                window.home_main_box.set_view (Home.MainBox.View.LIBRARY);
             });
 
             append (status_page);

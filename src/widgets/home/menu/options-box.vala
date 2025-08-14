@@ -60,6 +60,8 @@ namespace Protonium.Widgets.Menu {
             };
             remove_button.clicked.connect (remove_button_clicked);
 
+            window.notify["selected-game"].connect (selected_game_changed);
+
             append (name_label);
             append (play_button);
             append (edit_button);
@@ -68,11 +70,11 @@ namespace Protonium.Widgets.Menu {
             add_css_class ("options-box");
         }
 
-        public void load (Models.Games.Game? game) {
-            if (game == null)
+        void selected_game_changed () {
+            if (window.selected_game == null)
                 return;
 
-            name_label.set_label (game.name);
+            name_label.set_label (window.selected_game.name);
         }
 
         void play_button_clicked () {

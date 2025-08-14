@@ -60,11 +60,11 @@ namespace Protonium.Widgets {
         }
 
         void all_games_button_clicked () {
-            window.library_main_box.set_view (Library.MainBox.View.GAMES);
+            window.home_main_box.library_main_box.set_view (Library.MainBox.View.GAMES);
         }
 
         void collections_button_clicked () {
-            window.library_main_box.set_view (Library.MainBox.View.COLLECTIONS);
+            window.home_main_box.library_main_box.set_view (Library.MainBox.View.COLLECTIONS);
         }
 
         public void set_active_tab (Tab tab) {

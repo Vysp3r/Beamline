@@ -12,7 +12,7 @@ namespace Protonium.Widgets.Settings {
         Adw.NavigationSplitView navigation_split_view;
 
         public MainBox (Window window) {
-            Object (hexpand: true);
+            Object (hexpand: true, vexpand: true);
 
             this.window = window;
             

@@ -2,7 +2,12 @@ namespace Protonium.Utils {
     public class Filesystem {
         public static string? get_file_content (string path, bool use_uri = false) {
             try {
-                File file = File.new_for_path (path);
+                File file = null;
+                
+                if (use_uri)
+                    file = File.new_for_uri (path);
+                else
+                    file = File.new_for_path (path);
 
                 uint8[] contents;
                 

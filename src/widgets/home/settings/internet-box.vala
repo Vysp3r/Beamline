@@ -70,9 +70,9 @@ namespace Protonium.Widgets.Settings {
         }
 
         void network_row_activated (Utils.Network.ConnectionInfo connection_info) {
-            window.bar_main_box.menu_main_box.connection_box.load (connection_info);
+            window.home_main_box.menu_main_box.connection_box.load (connection_info);
 
-            window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.CONNECTION);
+            window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.CONNECTION);
         }
     }
 }

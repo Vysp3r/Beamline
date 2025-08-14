@@ -1,7 +1,7 @@
 namespace Protonium.Widgets {
     public class Window : Adw.ApplicationWindow {
         public Gee.ArrayList<Models.Launchers.Launcher> launchers { get; set; }
-        public Models.Games.Game selected_game { get; set; }
+        public Models.Games.Game? selected_game { get; set; }
         public Gee.ArrayList<Models.Games.Game> displayed_games { get; set; }
         public Gee.ArrayList<string> genres { get; set; }
         public Gee.ArrayList<string> filter_genres { get; set; }
@@ -17,16 +17,12 @@ namespace Protonium.Widgets {
         Adw.HeaderBar header_bar;
         Onboarding.MainBox onboarding_main_box;
         Loading.MainBox loading_main_box;
-        public Library.MainBox library_main_box;
-        public Bar.MainBox bar_main_box;
-        public Settings.MainBox settings_main_box;
+        public Home.MainBox home_main_box;
         
         Adw.ToolbarView toolbar_view;
 
         public Window (Gtk.Application app) {
             Object (application: app);
-
-            add_set_view_action ();
 
             displayed_games = new Gee.ArrayList<Models.Games.Game> ();
             genres = new Gee.ArrayList<string> ();
@@ -43,8 +39,6 @@ namespace Protonium.Widgets {
 
             notify["fullscreened"].connect (fullscreened_changed);
 
-            notify["selected-game"].connect (selected_game_changed);
-
             notify["search-text"].connect (update_displayed_games);
 
             notify["order-by"].connect (update_displayed_games);
@@ -52,16 +46,6 @@ namespace Protonium.Widgets {
             set_content (toolbar_view);
             set_size_request (980, 1155);
         }
-
-        void add_set_view_action () {
-			SimpleAction action = new SimpleAction ("set-view", VariantType.INT32);
-
-			action.activate.connect ((variant) => {
-                set_view ((View) variant.get_int32 ());
-			});
-
-			add_action (action);
-		}
 
         public void set_view (View view) {
             if (current_view == view)
@@ -86,37 +70,19 @@ namespace Protonium.Widgets {
 
                     toolbar_view.set_content (loading_main_box);
                     break;
-                case View.LIBRARY:
-                    set_window_title (_("Library"));
-
-                    if (library_main_box == null)
-                        library_main_box = new Library.MainBox (this); 
-
-                    if (bar_main_box == null) {
-                        bar_main_box = new Bar.MainBox (this);
+                case View.HOME:
+                    if (home_main_box == null) {
+                        home_main_box = new Home.MainBox (this);
 
                         update_displayed_games ();
                     }
-                    
-                    if (library_main_box.get_parent () == null)
-                        bar_main_box.set_overlay_content (library_main_box);
 
-                    if (bar_main_box.get_parent () == null)
-                        toolbar_view.set_content (bar_main_box);
+                    home_main_box.set_view (Home.MainBox.View.LIBRARY);
+
+                    if (home_main_box.get_parent () == null)
+                        toolbar_view.set_content (home_main_box);
                     break;
-                case View.SETTINGS:
-                    set_window_title (_("Settings"));
-
-                    if (settings_main_box == null)
-                        settings_main_box = new Settings.MainBox (this); 
-
-                    if (settings_main_box.get_parent () == null)
-                        bar_main_box.set_overlay_content (settings_main_box);
-
-                    if (bar_main_box.get_parent () == null)
-                        toolbar_view.set_content (bar_main_box);
-                    break;
-                case View.NONE:
+                default:
                     set_window_title ("");
                     toolbar_view.set_content (null);
                     break;
@@ -131,10 +97,6 @@ namespace Protonium.Widgets {
             previous_focused_widget = focused_widget;
 
             focused_widget = get_focus ();
-        }
-
-        void selected_game_changed () {
-            library_main_box.load (selected_game);
         }
 
         public void set_window_title (string title) {
@@ -234,8 +196,7 @@ namespace Protonium.Widgets {
             NONE,
             ONBOARDING,
             LOADING,
-            LIBRARY,
-            SETTINGS,
+            HOME,
         }
     }
 }

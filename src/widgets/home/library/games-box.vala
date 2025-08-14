@@ -5,8 +5,6 @@ namespace Protonium.Widgets.Library {
         Gtk.SingleSelection selection_model;
         Gtk.GridView game_grid_view;
 
-        public signal void game_selected (Models.Games.Game game);
-
         public GamesBox (Window window) {
             this.window = window;
 
@@ -45,7 +43,7 @@ namespace Protonium.Widgets.Library {
         void factory_unbind (GLib.Object object) {
             var list_item = object as Gtk.ListItem;
 
-            list_item.get_data<GameRow.MainBox> ("game-row-main-box").unload ();
+            list_item.get_data<GameRow> ("game-row-main-box").unload ();
         }
 
 		void factory_bind (Object object) {
@@ -53,13 +51,13 @@ namespace Protonium.Widgets.Library {
 
 			var game = list_item.get_item() as Models.Games.Game;
 
-            list_item.get_data<GameRow.MainBox> ("game-row-main-box").load (game);
+            list_item.get_data<GameRow> ("game-row-main-box").load (game);
         }
 
         void factory_setup (Object object) {
 			var list_item = object as Gtk.ListItem;
 
-            var game_row_main_box = new GameRow.MainBox (window);
+            var game_row_main_box = new GameRow (window);
             game_row_main_box.left_clicked.connect (() => game_row_main_box_left_clicked (list_item.get_position ()));
 
             list_item.set_data ("game-row-main-box", game_row_main_box);
@@ -68,13 +66,13 @@ namespace Protonium.Widgets.Library {
         }
 
         void game_grid_view_activated (uint pos) {
-            window.selected_game = selection_model.get_item (pos) as Models.Games.Game;
+            window.home_main_box.library_main_box.game_box.load (window.selected_game);
+            
+            window.home_main_box.library_main_box.set_view (Library.MainBox.View.GAME);
         }
 
         void selection_model_selected_item_changed  () {
-            var game = selection_model.get_selected_item () as Models.Games.Game;
-
-            game_selected (game);
+            window.selected_game = selection_model.get_selected_item () as Models.Games.Game;
         }
 
         void globals_displayed_games_changed () {
@@ -90,7 +88,7 @@ namespace Protonium.Widgets.Library {
         void game_row_main_box_left_clicked (uint position) {
             selection_model.set_selected (position);
 
-            window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.OPTIONS);
+            window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.OPTIONS);
         }
     }
 }

@@ -55,16 +55,12 @@ namespace Protonium.Widgets.Menu {
             add_css_class ("menu-main-box");
         }
 
-        public void load (Models.Games.Game? game) {
-            options_box.load (game);
-        }
-
         public void set_view (View view) {
             this.current_view = view;
 
             set_visible (view != View.NONE);
 
-            window.bar_main_box?.bottom_bar?.show_extra_buttons (view == View.NONE && window.current_view == Window.View.LIBRARY);
+            window.home_main_box?.bottom_bar?.show_extra_buttons (view == View.NONE && window.home_main_box.current_view == Home.MainBox.View.LIBRARY);
 
             menu_box.set_visible (view == View.MENU);
 

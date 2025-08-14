@@ -106,24 +106,30 @@ namespace Protonium.Widgets {
         void search_entry_text_changed () {
             window.search_text = search_entry.get_text ();
 
-            if (window.bar_main_box.menu_main_box.current_view != Menu.MainBox.View.NONE)
-                window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
+            if (window.home_main_box.menu_main_box.current_view != Menu.MainBox.View.NONE)
+                window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
+
+            if (window.home_main_box.current_view != Home.MainBox.View.LIBRARY)
+                window.home_main_box.set_view (Home.MainBox.View.LIBRARY);
+
+            if (window.home_main_box.library_main_box.current_view != Library.MainBox.View.GAMES)
+                window.home_main_box.library_main_box.set_view (Library.MainBox.View.GAMES);
         }
 
         void internet_button_clicked () {
-            window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
+            window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
  
-            window.set_view (Window.View.SETTINGS);
+            window.home_main_box.set_view (Home.MainBox.View.SETTINGS);
 
-            window.settings_main_box.set_view (Settings.MainBox.View.INTERNET);
+            window.home_main_box.settings_main_box.set_view (Settings.MainBox.View.INTERNET);
         }
 
         void battery_button_clicked () {
-            window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
+            window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
 
-            window.set_view (Window.View.SETTINGS);
+            window.home_main_box.set_view (Home.MainBox.View.SETTINGS);
 
-            window.settings_main_box.set_view (Settings.MainBox.View.POWER);
+            window.home_main_box.settings_main_box.set_view (Settings.MainBox.View.POWER);
         }
 
         void battery_percentage_changed () {

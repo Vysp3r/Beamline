@@ -61,19 +61,19 @@ namespace Protonium.Widgets.Menu {
         }
 
         void library_button_clicked () {
-            window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
+            window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
 
-            window.set_view (Window.View.LIBRARY);
+            window.home_main_box.set_view (Home.MainBox.View.LIBRARY);
         }
 
         void settings_button_clicked () {
-            window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
+            window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.NONE);
             
-            window.set_view (Window.View.SETTINGS);
+            window.home_main_box.set_view (Home.MainBox.View.SETTINGS);
         }
 
         void power_button_clicked () {
-            window.bar_main_box.menu_main_box.set_view (Menu.MainBox.View.POWER);
+            window.home_main_box.menu_main_box.set_view (Menu.MainBox.View.POWER);
         }
     }
 }

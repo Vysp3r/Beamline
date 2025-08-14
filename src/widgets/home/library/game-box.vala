@@ -11,7 +11,7 @@ namespace Protonium.Widgets.Library {
         Image cover_image;
 
         public GameBox (Window window) {
-            Object (halign: Gtk.Align.CENTER, valign: Gtk.Align.CENTER, spacing: 100);
+            Object (halign: Gtk.Align.CENTER, hexpand: true, valign: Gtk.Align.CENTER, vexpand: true, spacing: 100);
 
             this.window = window;
 
@@ -115,7 +115,7 @@ namespace Protonium.Widgets.Library {
         }
 
         void visible_changed () {
-            window.bar_main_box?.bottom_bar?.show_extra_buttons (!visible);
+            window.home_main_box?.bottom_bar?.show_extra_buttons (!visible);
         }
     }
 }

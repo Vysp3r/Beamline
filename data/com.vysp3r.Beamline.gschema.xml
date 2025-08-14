@@ -43,7 +43,7 @@
 		<key name="enable-automatic-scaling" type="b">
 			<default>true</default>
 		</key>
-		<key name="scaling" type="d">
+		<key name="scale-factor" type="d">
 			<default>1.0</default>
 		</key>
 		<key name="style" enum="com.vysp3r.Beamline.Style">

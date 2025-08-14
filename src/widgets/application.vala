@@ -3,8 +3,7 @@ namespace Protonium.Widgets {
         public static GLib.Settings settings;
         public static string cache_path;
         public static string data_path;
-
-        Window window;
+        public static Window window;
 
         public Application (GLib.Settings settings) {
             Object (
@@ -36,6 +35,8 @@ namespace Protonium.Widgets {
 			Gtk.IconTheme.get_for_display (display).add_resource_path ("%s/icons".printf (resource_base_path));
 
             window = new Window (this);
+
+            Utils.CSS.get_instance ();
 
             settings.bind ("is-onboarding-done",
                         window,

@@ -1,12 +1,12 @@
-namespace Protonium.Widgets.GameRow {
-    public class MainBox : Gtk.Widget {
+namespace Protonium.Widgets.Library {
+    public class GameRow : Gtk.Widget {
         Window window;
         Image image;
         Gtk.Overlay overlay;
 
         public signal void left_clicked ();
 
-        public MainBox (Window window) {
+        public GameRow (Window window) {
             this.window = window;
 
             var hover_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
@@ -19,10 +19,7 @@ namespace Protonium.Widgets.GameRow {
                 valign = Gtk.Align.START,
             };
             
-            image = new Image () {
-                width_request = 300,
-                height_request = 450
-            };
+            image = new Image ();
 
             overlay = new Gtk.Overlay ();
             overlay.set_parent (this);
@@ -37,6 +34,10 @@ namespace Protonium.Widgets.GameRow {
             };
 
             gesture_click.released.connect (gesture_click_released);
+
+            Utils.CSS.get_instance ().notify["scale-factor"].connect (scale_factor_changed);
+
+            scale_factor_changed ();
 
             var bin_layout = new Gtk.BinLayout ();
 
@@ -60,6 +61,11 @@ namespace Protonium.Widgets.GameRow {
 
         void gesture_click_released () {
             left_clicked ();
+        }
+
+        void scale_factor_changed () {
+            image.width_request = (int)(300 * Utils.CSS.get_instance ().scale_factor);
+            image.height_request = (int)(450 * Utils.CSS.get_instance ().scale_factor);
         }
     }
 }

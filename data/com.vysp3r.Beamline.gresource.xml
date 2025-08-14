@@ -7,8 +7,9 @@
     <file alias="lutris.svg">images/lutris.svg</file>
     <file alias="steam.svg">images/steam.svg</file>
     <file alias="winezgui.svg">images/winezgui.svg</file>
+  </gresource>
+  <gresource prefix="/com/vysp3r/Beamline/css">
     <file alias="style.css">css/style.css</file>
-    <file alias="style-dark.css">css/style-dark.css</file>
   </gresource>
   <gresource prefix="/com/vysp3r/Beamline/icons">
     <file alias="scalable/actions/heart-symbolic.svg">icons/heart.svg</file>

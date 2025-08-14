@@ -31,7 +31,7 @@
     background-color: rgba(0, 0, 0, 0);
 }
 
-.top-box > label {
+.top-box > box > label {
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -46,9 +46,11 @@
 
 .bottom-box,
 .top-box,
-.library-bar {
+.library-bar,
+.card-shade {
     background-color: @card_shade_color;
 }
+
 
 .library-bar {
     -gtk-icon-size: 56px;
@@ -58,6 +60,7 @@
 
 .menu-main-box {
     font-size: 24px;
+    background-color: @card_shade_color;
 }
 
 .menu-main-box button {

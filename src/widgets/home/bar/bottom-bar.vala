@@ -82,14 +82,17 @@ namespace Protonium.Widgets {
             };
             back_button.clicked.connect (back_button_clicked);
   
+            var content_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+            content_box.append (menu_button);
+            content_box.append (spacer);
+            content_box.append (filter_button);
+            content_box.append (order_by_button);
+            content_box.append (options_button);
+            content_box.append (select_button);
+            content_box.append (back_button);
+
+            append (content_box);
             add_css_class ("bottom-box");
-            append (menu_button);
-            append (spacer);
-            append (filter_button);
-            append (order_by_button);
-            append (options_button);
-            append (select_button);
-            append (back_button);
         }
 
         void menu_button_clicked () {

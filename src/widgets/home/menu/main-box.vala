@@ -73,6 +73,16 @@ namespace Protonium.Widgets.Menu {
             options_box.set_visible (view == View.OPTIONS);
 
             connection_box.set_visible (view == View.CONNECTION);
+
+            if (view == View.NONE) {
+                window.home_main_box.top_bar.get_first_child ().remove_css_class ("card-shade");
+                window.home_main_box.library_bar.get_first_child ().remove_css_class ("card-shade");
+                window.home_main_box.bottom_bar.get_first_child ().remove_css_class ("card-shade");
+            } else {
+                window.home_main_box.top_bar.get_first_child ().add_css_class ("card-shade");
+                window.home_main_box.library_bar.get_first_child ().add_css_class ("card-shade");
+                window.home_main_box.bottom_bar.get_first_child ().add_css_class ("card-shade");
+            }
         }
 
         public enum View {

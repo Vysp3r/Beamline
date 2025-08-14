@@ -50,12 +50,15 @@ namespace Protonium.Widgets {
                 css_classes = { "flat" },
             };
 
-            append (left_button);
-            append (left_spacer);
-            append (all_games_button);
-            append (collections_button);
-            append (right_spacer);
-            append (right_button);
+            var content_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+            content_box.append (left_button);
+            content_box.append (left_spacer);
+            content_box.append (all_games_button);
+            content_box.append (collections_button);
+            content_box.append (right_spacer);
+            content_box.append (right_button);
+
+            append (content_box);
             add_css_class ("library-bar");
         }
 

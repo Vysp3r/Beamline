@@ -35,8 +35,9 @@ namespace Protonium.Widgets {
 
             Utils.Network.get_instance ().notify["devices"].connect (refresh_network_devices);
 
-            append (search_entry);
-            append (internet_button);
+            var content_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+            content_box.append (search_entry);
+            content_box.append (internet_button);
 
             var system = Utils.System.get_instance ();
 
@@ -64,7 +65,7 @@ namespace Protonium.Widgets {
                 battery_percentage_changed ();
                 battery_state_changed ();
 
-                append (battery_button);
+                content_box.append (battery_button);
             }
 
             time_label = new Gtk.Label (null);
@@ -85,7 +86,9 @@ namespace Protonium.Widgets {
                 return false;
             });
 
-            append (time_label);
+            content_box.append (time_label);
+
+            append (content_box);
             add_css_class ("top-box");
         }
 
